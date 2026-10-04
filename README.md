@@ -75,7 +75,3 @@ Both workflows run on every push and pull request to `main` and can be started m
 
 If a metric is wrong, coverage drops, or the saved model predictions fall below the deployment
 threshold (accuracy ≥ 0.80, F1 ≥ 0.75), the workflow fails and the change is blocked.
-
-## Screenshots
-
-<!-- Add screenshots of the green Actions runs here, e.g. ![Actions](assets/actions.png) -->
