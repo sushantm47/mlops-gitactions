@@ -1,0 +1,10 @@
+lab_01/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+pytest-report.xml
+.DS_Store
