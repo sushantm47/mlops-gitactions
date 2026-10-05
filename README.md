@@ -15,7 +15,7 @@ running those tests automatically with **GitHub Actions**.
 | --- | --- | --- |
 | Code under test | `calculator.py` with `fun1`–`fun4` (add, subtract, multiply, sum of three numbers) | `metrics.py`: ML evaluation metrics written from scratch – accuracy, precision, recall, F1, confusion matrix, MAE, MSE, RMSE, R² |
 | MLOps angle | none | `quality_gate()` decides whether a model is good enough to deploy; `evaluate.py` runs it on saved predictions |
-| Data | empty `data/` folder | `data/predictions.csv` – predictions from a toy spam classifier |
+| Data | empty `data/` folder | `data/predictions.csv` – sample model predictions (hand-made for testing) |
 | Test correctness | hand-computed expected values | pytest cross-checks every metric against **scikit-learn** |
 | Tests | 4 pytest + 4 unittest | 25 pytest (parametrized, error cases, `capsys`) + 11 unittest (`setUp`, `subTest`) |
 | Error handling | basic type checks | type, empty-input, length-mismatch, non-numeric and zero-variance checks |
@@ -30,7 +30,7 @@ running those tests automatically with **GitHub Actions**.
 │   └── unittest_action.yml    # unittest suite
 ├── data/
 │   ├── __init__.py
-│   └── predictions.csv        # y_true, y_pred from a toy classifier
+│   └── predictions.csv        # sample y_true, y_pred for testing
 ├── src/
 │   ├── __init__.py
 │   ├── metrics.py             # metric functions + quality_gate
