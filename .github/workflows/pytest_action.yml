@@ -45,3 +45,11 @@ jobs:
         with:
           name: pytest-report-py${{ matrix.python-version }}
           path: pytest-report.xml
+
+      - name: Notify on success
+        if: success()
+        run: echo "Tests passed successfully"
+
+      - name: Notify on failure
+        if: failure()
+        run: echo "Tests failed"

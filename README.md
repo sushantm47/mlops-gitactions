@@ -1,7 +1,9 @@
 # MLOps Lab 1 – Model Evaluation Metrics with CI
 
-![Pytest](https://github.com/sushantm47/mlops-gitactions/actions/workflows/pytest_action.yml/badge.svg)
-![Unittest](https://github.com/sushantm47/mlops-gitactions/actions/workflows/unittest_action.yml/badge.svg)
+**Author:** Sushant M · IE-7374 MLOps, Northeastern University (Boston)
+
+![Pytest](https://github.com/sushantm47/mlops-gitactions/actions/workflows/pytest_action.yml/badge.svg?branch=main)
+![Unittest](https://github.com/sushantm47/mlops-gitactions/actions/workflows/unittest_action.yml/badge.svg?branch=main)
 
 Modified version of **Github_Labs/Lab1** from the IE-7374 MLOps course (Prof. Ramin Mohammadi, Northeastern University).
 The lab teaches virtual environments, project structure, unit testing with **pytest** and **unittest**, and
@@ -11,13 +13,13 @@ running those tests automatically with **GitHub Actions**.
 
 | Area | Original lab | This repo |
 | --- | --- | --- |
-| Code under test | `calculator.py` with `fun1`–`fun4` (add, subtract, multiply, combine) | `metrics.py`: ML evaluation metrics written from scratch – accuracy, precision, recall, F1, confusion matrix, MAE, MSE, RMSE, R² |
+| Code under test | `calculator.py` with `fun1`–`fun4` (add, subtract, multiply, sum of three numbers) | `metrics.py`: ML evaluation metrics written from scratch – accuracy, precision, recall, F1, confusion matrix, MAE, MSE, RMSE, R² |
 | MLOps angle | none | `quality_gate()` decides whether a model is good enough to deploy; `evaluate.py` runs it on saved predictions |
 | Data | empty `data/` folder | `data/predictions.csv` – predictions from a toy spam classifier |
 | Test correctness | hand-computed expected values | pytest cross-checks every metric against **scikit-learn** |
 | Tests | 4 pytest + 4 unittest | 25 pytest (parametrized, error cases, `capsys`) + 11 unittest (`setUp`, `subTest`) |
 | Error handling | basic type checks | type, empty-input, length-mismatch, non-numeric and zero-variance checks |
-| CI | single Python version, pytest/unittest only | Python 3.10/3.11/3.12 matrix, flake8 linting, 90% coverage minimum, quality-gate step, JUnit report uploaded as an artifact, manual trigger |
+| CI | Python 3.8, `@v2` actions (retired `upload-artifact@v2`), `run-nam` typo, `branches` + `branches-ignore` used together | Python 3.10/3.11/3.12 matrix with `@v4`/`@v5` actions, YAML bugs fixed, flake8 linting, 90% coverage minimum, quality-gate step, JUnit report artifact, success/failure notifications, manual trigger |
 
 ## Project structure
 
@@ -27,6 +29,7 @@ running those tests automatically with **GitHub Actions**.
 │   ├── pytest_action.yml      # lint + pytest + coverage + quality gate
 │   └── unittest_action.yml    # unittest suite
 ├── data/
+│   ├── __init__.py
 │   └── predictions.csv        # y_true, y_pred from a toy classifier
 ├── src/
 │   ├── __init__.py
